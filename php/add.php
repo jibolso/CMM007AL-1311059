@@ -83,6 +83,7 @@
                 header("Location: index.php");
             }
     }
+    $db->close();
     ?>
 
 </main>

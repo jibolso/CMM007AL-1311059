@@ -133,7 +133,7 @@
                 }
             }
 
-
+        $db->close();
         ?>
 
     </section>
