@@ -14,7 +14,7 @@
         <span id="mainTitle"><a href="index.php">myBlog</a> </span><br>
         <span id="subTitle">because the internet needs to know what i think</span>
     </div>
-    <nav>
+    <nav><!-- navigation -->
         <ul>
             <li><a href="blog.php?category=All">All Blog Items</a> </li>
             <li><a href="blog.php?category=Work">Work Items</a> </li>
@@ -26,6 +26,7 @@
     </nav>
 </header>
 <main>
+    <!-- doing the Get check -->
     <?php if($_SERVER['REQUEST_METHOD'] === 'GET'){
 
     ?>
@@ -60,6 +61,7 @@
                 </div>
             </form>
         </div>
+        <!-- doing the post check -->
     <? }elseif($_SERVER['REQUEST_METHOD'] === 'POST'){
 
             if(isset($_POST['entryTitle']) && isset($_POST['entrySummary']) && isset($_POST['entryCategory'])){
@@ -83,6 +85,7 @@
                 header("Location: index.php");
             }
     }
+    //closing the database connection
     $db->close();
     ?>
 
@@ -97,7 +100,7 @@
 
 <?php
 
-//creating an input for form validation
+//creating an input for form validation: this also reduces the chances of SQL injection
     function validation($data) {
     $data = trim($data);
     $data = stripslashes($data);

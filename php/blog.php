@@ -1,4 +1,4 @@
-<?php require('connection/db.php') ?>
+<?php require('connection/db.php') //passing the passing where the database lies?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,13 +10,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 </head>
 <body>
-<header>
+<header> <!-- header -->
     <div id="title">
         <span id="mainTitle"><a href="index.php">myBlog</a> </span><br>
         <span id="subTitle">because the internet needs to know what i think</span> <br>
-        <span id="category"></span>
+        <span id="category"></span> <!-- Current category will be displayed here -->
     </div>
-    <nav>
+    <nav> <!-- navigation -->
         <ul>
             <li><a href="blog.php?category=All">All Blog Items</a> </li>
             <li><a href="blog.php?category=Work">Work Items</a> </li>
@@ -27,10 +27,12 @@
         </ul>
     </nav>
 </header>
-<main>
+<main><!-- page main -->
     <section id="blogPage">
         <?php
+        //Displaying the various category based on the GET values
             if(isset($_GET['category']) && $_GET['category'] == 'All'){
+                //Displaying All
                 $sql = "SELECT * FROM blogview";
                 $db_parse = mysqli_query($db, $sql);
                 $count = mysqli_num_rows($db_parse);
@@ -49,6 +51,7 @@
                             echo "<hr>";
                         }
                     }
+                    //Passing the value that shows at the header
                     echo "<script type='application/javascript'>";
                     echo "document.getElementById('category').innerHTML = 'All'";
                     echo "</script>";
@@ -57,6 +60,7 @@
                 }
 
             }elseif(isset($_GET['category']) && $_GET['category'] == 'Work'){
+                //Displaying Work Category
                 $sql = "SELECT * FROM blogview WHERE category = 'Work'";
                 $db_parse = mysqli_query($db, $sql);
                 $count = mysqli_num_rows($db_parse);
@@ -75,6 +79,7 @@
                             echo "<hr>";
                         }
                     }
+                    //Passing the value that shows at the header
                     echo "<script type='application/javascript'>";
                     echo "document.getElementById('category').innerHTML = 'Work'";
                     echo "</script>";
@@ -82,6 +87,7 @@
                     echo "<p>No result to display</p>";
                 }
             }elseif(isset($_GET['category']) && $_GET['category'] == 'University'){
+                //Displaying University
                 $sql = "SELECT * FROM blogview WHERE category = 'University'";
                 $db_parse = mysqli_query($db, $sql);
                 $count = mysqli_num_rows($db_parse);
@@ -100,6 +106,7 @@
                             echo "<hr>";
                         }
                     }
+                    //Passing the value that shows at the header
                     echo "<script type='application/javascript'>";
                     echo "document.getElementById('category').innerHTML = 'University'";
                     echo "</script>";
@@ -107,6 +114,7 @@
                     echo "<p>No result to display</p>";
                 }
             }elseif(isset($_GET['category']) && $_GET['category'] == 'Family'){
+                //Displaying Family
                 $sql = "SELECT * FROM blogview WHERE category = 'Family'";
                 $db_parse = mysqli_query($db, $sql);
                 $count = mysqli_num_rows($db_parse);
@@ -125,6 +133,7 @@
                             echo "<hr>";
                         }
                     }
+                    //Passing the value that shows at the header
                     echo "<script type='application/javascript'>";
                     echo "document.getElementById('category').innerHTML = 'Family'";
                     echo "</script>";
@@ -150,6 +159,7 @@
                             echo "<hr>";
                         }
                     }
+                    //Passing the value that shows at the header
                     echo "<script type='application/javascript'>";
                     echo "document.getElementById('category').innerHTML = 'All'";
                     echo "</script>";
