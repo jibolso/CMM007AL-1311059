@@ -29,6 +29,7 @@
 </header>
 <main><!-- page main -->
     <section id="blogPage">
+        <span><?php if(isset($_GET['s'])){echo "Blog Entry Successful";}?></span>
         <?php
         //Displaying the various category based on the GET values
             if(isset($_GET['category']) && $_GET['category'] == 'All'){
