@@ -122,7 +122,7 @@
                         <hr>
                         ";
                         $hr_count++;
-                        if($hr_count != $count || $hr_count = count-1){
+                        if($hr_count != $count || $hr_count = count){
                             echo "<hr>";
                         }
                     }
