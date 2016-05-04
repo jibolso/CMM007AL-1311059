@@ -29,7 +29,7 @@
 </header>
 <main><!-- page main -->
     <section id="blogPage">
-        <span class="entrySuccessful"><?php if(isset($_GET['s']) && $_GET['s'] == 1 ){echo "Blog Entry Successful";} elseif(isset($_GET['f']) && $_GET['f'] == 1){echo "Blog Entry Failed";}?></span> <br>
+        <span class="entrySuccessful"><?php if(isset($_GET['s']) && $_GET['s'] == 1 ){echo "Blog Entry Successful";}?></span> <br>
         <?php
         //Displaying the various category based on the GET values
             if(isset($_GET['category']) && $_GET['category'] == 'All'){

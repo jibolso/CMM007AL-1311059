@@ -26,6 +26,8 @@
 </header>
 <main><!-- main section -->
     <section>
+        <span class="entrySuccessful"><?php if(isset($_GET['f']) && $_GET['f'] == 1){echo "Blog Entry Failed";}?></span> <br>
+
         <p>
             Hey There.<br>
             This is my blog page. Yes! I want my voice to be heard.<br>

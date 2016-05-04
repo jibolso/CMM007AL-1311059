@@ -82,7 +82,7 @@
                 }
 
             }else{
-                header("Location: index.php");
+                header("Location: index.php?f=1");
             }
     }
     //closing the database connection
