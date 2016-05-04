@@ -30,7 +30,7 @@
         <?php
             if(isset($_GET['category']) && $_GET['category'] == 'All'){
                 $cat = 'Andriod';
-                $sql = "SELECT * FROM bugView";
+                $sql = "SELECT * FROM blogview";
                 $db_parse = mysqli_query($db, $sql);
                 if(mysqli_num_rows($db_parse) >=1){
                     while($row = $db_parse->fetch_array()) {
