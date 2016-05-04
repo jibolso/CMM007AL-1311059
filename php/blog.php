@@ -59,6 +59,8 @@
             }elseif(isset($_GET['category']) && $_GET['category'] == 'Work'){
                 $sql = "SELECT * FROM blogview WHERE category = 'Work'";
                 $db_parse = mysqli_query($db, $sql);
+                $count = mysqli_num_rows($db_parse);
+                $hr_count =0;
                 if(mysqli_num_rows($db_parse) >=1){
                     while($row = $db_parse->fetch_array()) {
                         echo "
@@ -67,8 +69,11 @@
                         <p>{$row['category']}</p>
                          <p>{$row['entrySummary']}</p>
                         </article>
-                        <hr>
                         ";
+                        $hr_count++;
+                        if($hr_count != $count){
+                            echo "<hr>";
+                        }
                     }
                     echo "<script type='application/javascript'>";
                     echo "document.getElementById('category').innerHTML = 'Work'";
@@ -79,6 +84,8 @@
             }elseif(isset($_GET['category']) && $_GET['category'] == 'University'){
                 $sql = "SELECT * FROM blogview WHERE category = 'University'";
                 $db_parse = mysqli_query($db, $sql);
+                $count = mysqli_num_rows($db_parse);
+                $hr_count =0;
                 if(mysqli_num_rows($db_parse) >=1){
                     while($row = $db_parse->fetch_array()) {
                         echo "
@@ -87,8 +94,11 @@
                         <p>{$row['category']}</p>
                          <p>{$row['entrySummary']}</p>
                         </article>
-                        <hr>
                         ";
+                        $hr_count++;
+                        if($hr_count != $count){
+                            echo "<hr>";
+                        }
                     }
                     echo "<script type='application/javascript'>";
                     echo "document.getElementById('category').innerHTML = 'University'";
@@ -99,6 +109,8 @@
             }elseif(isset($_GET['category']) && $_GET['category'] == 'Family'){
                 $sql = "SELECT * FROM blogview WHERE category = 'Family'";
                 $db_parse = mysqli_query($db, $sql);
+                $count = mysqli_num_rows($db_parse);
+                $hr_count =0;
                 if(mysqli_num_rows($db_parse) >=1){
                     while($row = $db_parse->fetch_array()) {
                         echo "
@@ -109,6 +121,10 @@
                         </article>
                         <hr>
                         ";
+                        $hr_count++;
+                        if($hr_count != $count){
+                            echo "<hr>";
+                        }
                     }
                     echo "<script type='application/javascript'>";
                     echo "document.getElementById('category').innerHTML = 'Family'";
