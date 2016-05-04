@@ -98,7 +98,22 @@
                     echo "<p>No result to display</p>";
                 }
             }else{
-
+                $sql = "SELECT * FROM blogview";
+                $db_parse = mysqli_query($db, $sql);
+                if(mysqli_num_rows($db_parse) >=1){
+                    while($row = $db_parse->fetch_array()) {
+                        echo "
+                        <article>
+                        <span class='btitle'>{$row['entryTitle']}</span> <span>by</span> <span class='bName'>{$row['submitter']}</span>
+                        <p>All</p>
+                         <p>{$row['entrySummary']}</p>
+                        </article>
+                        <hr>
+                        ";
+                    }
+                }else {
+                    echo "<p>No result to display</p>";
+                }
             }
 
 
