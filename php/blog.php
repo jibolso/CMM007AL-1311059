@@ -126,7 +126,7 @@
                         </article>
                         ";
                         $hr_count++;
-                        if($hr_count != $count){
+                        if($hr_count != $count-1){
                             echo "<hr>";
                         }
                     }
