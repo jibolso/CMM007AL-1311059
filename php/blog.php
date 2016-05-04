@@ -114,6 +114,8 @@
             }else{
                 $sql = "SELECT * FROM blogview";
                 $db_parse = mysqli_query($db, $sql);
+                $count = mysqli_num_rows($db_parse);
+                $hr_count =0;
                 if(mysqli_num_rows($db_parse) >=1){
                     while($row = $db_parse->fetch_array()) {
                         echo "
@@ -122,8 +124,11 @@
                         <p>All</p>
                          <p>{$row['entrySummary']}</p>
                         </article>
-                        <hr>
                         ";
+                        $hr_count++;
+                        if($hr_count != $count){
+                            echo "<hr>";
+                        }
                     }
                     echo "<script type='application/javascript'>";
                     echo "document.getElementById('category').innerHTML = 'All'";
