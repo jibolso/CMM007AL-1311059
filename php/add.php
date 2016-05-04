@@ -1,3 +1,4 @@
+<?php require_once('connection/db.php');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,8 +26,11 @@
     </nav>
 </header>
 <main>
+    <?php if($_SERVER['REQUEST_METHOD'] === 'GET'){
+
+    ?>
         <div id="add">
-            <form name="#" action="#" method="#">
+            <form name="addForm" action="<?{$_SERVER['PHP_SELF'];}?>" method="post">
                 <div>
                     <label for="entryTitle">Entry Title</label>
                     <input type="text" id="entryTitle" name="entryTitle" value="" required/>
@@ -56,6 +60,30 @@
                 </div>
             </form>
         </div>
+    <? }elseif($_SERVER['REQUEST_METHOD'] === 'POST'){
+
+            if(isset($_POST['entryTitle']) && isset($_POST['entrySummary']) && isset($_POST['entryCategory'])){
+                $entryTitle = validation($_POST['entryTitle']);
+                $entrySummary = mysqli_real_escape_string($db, validation($_POST['entrySummary']));
+                $entryCategory = validation($_POST['entryCategory']);
+                $submittedBy = validation($_POST['submittedBy']);
+
+
+                $sql = "INSERT INTO blogview(`entryTitle`, `entrySummary`, `category`, `submitter`)
+                        VALUES ('{$entryTitle}', '{$entrySummary}', '{$entryCategory}', '{$submittedBy}')";
+
+
+                if (!$pushQuery = mysqli_query($db, $sql)){
+                    header("Location:index.php?f=1");
+                }else {
+                    header("Location:blog.php?s=1");
+                }
+
+            }else{
+                header("Location: index.php");
+            }
+    }
+    ?>
 
 </main>
 <footer>
@@ -65,3 +93,15 @@
 
 </body>
 </html>
+
+<?php
+
+//creating an input for form validation
+    function validation($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+?>
