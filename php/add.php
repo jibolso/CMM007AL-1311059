@@ -78,7 +78,7 @@
                 if (!$pushQuery = mysqli_query($db, $sql)){
                     header("Location:index.php?f=1");
                 }else {
-                    header("Location:blog.php");
+                    header("Location:blog.php?s=1");
                 }
 
             }else{
