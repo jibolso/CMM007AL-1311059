@@ -1,3 +1,4 @@
+<?php require('connection/db.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +16,7 @@
     </div>
     <nav>
         <ul>
-            <li><a href="blog.php">All Blog Items</a> </li>
+            <li><a href="blog.php?category=All">All Blog Items</a> </li>
             <li><a href="blog.php">Work Items</a> </li>
             <li><a href="blog.php">University Items</a> </li>
             <li><a href="blog.php">Family Items</a> </li>
@@ -26,25 +27,37 @@
 </header>
 <main>
     <section id="blogPage">
-        <article>
-            <span class="btitle">Today at work</span> <span>by</span> <span class="bName">Adam</span>
-            <p>Work</p>
-            <p>Today I went to work and did lots of very complicated coding things. I was very pleased that I managed to finish them all</p>
-        </article>
-        <hr>
+        <?php
+            if(isset($_GET['category']) && $_GET['category'] == 'All'){
+                $cat = 'Andriod';
+                $sql = "SELECT * FROM bugView";
+                $db_parse = mysqli_query($db, $sql);
+                if(mysqli_num_rows($db_parse) >=1){
+                    while($row = $db_parse->fetch_array()) {
+                        echo "
+                        <article>
+                        <span class='btitle'>{$row['entryTitle']}</span> <span>by</span> <span class='bName'>{$row['submitter']}</span>
+                        <p>All</p>
+                         <p>{$row['entrySummary']}</p>
+                        </article>
+                        <hr>
+                        ";
+                    }
+                }else {
+                    echo "<p>No result to display</p>";
+                }
 
-        <article>
-            <span class="btitle">University Lecturer</span> <span>by</span> <span class="bName">Brian</span>
-            <p>University</p>
-            <p>This week in university I had an amazing lecture. I can’t remember the name of the lecturer but he was really really good.
-                category: University</p>
-        </article>
-        <hr>
-        <article>
-            <span class="btitle">Dads new television</span> <span>by</span> <span class="bName">Charlie</span>
-            <p>Family</p>
-            <p>Today dad bought a new television. He likes to watch the F1 on it a lot.</p>
-        </article>
+            }elseif(isset($_GET['category']) && $_GET['category'] == 'University'){
+
+            }elseif(isset($_GET['category']) && $_GET['category'] == 'Family'){
+
+            }else{
+
+            }
+
+
+        ?>
+
     </section>
 </main>
 <footer>
