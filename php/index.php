@@ -8,7 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<header>
+<header><!-- header -->
     <div id="title">
         <span id="mainTitle"><a href="index.php">myBlog</a> </span><br>
         <span id="subTitle">because the internet needs to know what i think</span>
