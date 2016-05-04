@@ -28,7 +28,8 @@
     <section>
         <p>
             Hey There.<br>
-            This is my blog page. Yes! I want my voice to be heard.
+            This is my blog page. Yes! I want my voice to be heard.<br>
+            Click on the navigation bar above to view all categories or some of the categories I will be writing about.
 
         </p>
     </section>
