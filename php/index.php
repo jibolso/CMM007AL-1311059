@@ -13,7 +13,7 @@
         <span id="mainTitle"><a href="index.php">myBlog</a> </span><br>
         <span id="subTitle">because the internet needs to know what i think</span>
     </div>
-    <nav>
+    <nav><!-- site navigation -->
         <ul>
             <li><a href="blog.php?category=All">All Blog Items</a> </li>
             <li><a href="blog.php?category=Work">Work Items</a> </li>
@@ -24,7 +24,7 @@
         </ul>
     </nav>
 </header>
-<main>
+<main><!-- main section -->
     <section>
         <p>
             Hey There.<br>
