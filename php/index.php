@@ -10,7 +10,7 @@
 <body>
 <header>
     <div id="title">
-        <span id="mainTitle"><a href="../index.html">myBlog</a> </span><br>
+        <span id="mainTitle"><a href="index.php">myBlog</a> </span><br>
         <span id="subTitle">because the internet needs to know what i think</span>
     </div>
     <nav>
