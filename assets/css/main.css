@@ -123,6 +123,12 @@ section#blogPage {
     font-size: larger;
 }
 
+#entrySuccessful {
+    color: orange;
+    font-weight: 800;
+    font-size: large;
+}
+
 aside {
     max-width: 15%;
     float: right;
