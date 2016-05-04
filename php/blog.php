@@ -7,12 +7,14 @@
     <link href="../assets/css/main.css" rel="stylesheet" />
     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 </head>
 <body>
 <header>
     <div id="title">
         <span id="mainTitle"><a href="index.php">myBlog</a> </span><br>
-        <span id="subTitle">because the internet needs to know what i think</span>
+        <span id="subTitle">because the internet needs to know what i think</span> <br>
+        <span id="category"></span>
     </div>
     <nav>
         <ul>
@@ -42,6 +44,9 @@
                         <hr>
                         ";
                     }
+                    echo "<script type='application/javascript'>";
+                    echo "document.getElementById('category').innerHTML = 'All'";
+                    echo "</script>";
                 }else {
                     echo "<p>No result to display</p>";
                 }
@@ -60,6 +65,9 @@
                         <hr>
                         ";
                     }
+                    echo "<script type='application/javascript'>";
+                    echo "document.getElementById('category').innerHTML = 'Work'";
+                    echo "</script>";
                 }else {
                     echo "<p>No result to display</p>";
                 }
@@ -77,6 +85,9 @@
                         <hr>
                         ";
                     }
+                    echo "<script type='application/javascript'>";
+                    echo "document.getElementById('category').innerHTML = 'University'";
+                    echo "</script>";
                 }else {
                     echo "<p>No result to display</p>";
                 }
@@ -94,6 +105,9 @@
                         <hr>
                         ";
                     }
+                    echo "<script type='application/javascript'>";
+                    echo "document.getElementById('category').innerHTML = 'Family'";
+                    echo "</script>";
                 }else {
                     echo "<p>No result to display</p>";
                 }
@@ -111,6 +125,9 @@
                         <hr>
                         ";
                     }
+                    echo "<script type='application/javascript'>";
+                    echo "document.getElementById('category').innerHTML = 'All'";
+                    echo "</script>";
                 }else {
                     echo "<p>No result to display</p>";
                 }
