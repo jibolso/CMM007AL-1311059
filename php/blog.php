@@ -119,7 +119,6 @@
                         <p>{$row['category']}</p>
                          <p>{$row['entrySummary']}</p>
                         </article>
-                        <hr>
                         ";
                         $hr_count++;
                         if($hr_count != $count ){
