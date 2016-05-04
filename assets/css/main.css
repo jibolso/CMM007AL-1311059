@@ -123,7 +123,7 @@ section#blogPage {
     font-size: larger;
 }
 
-#entrySuccessful {
+.entrySuccessful {
     color: orange;
     font-weight: 800;
     font-size: large;
