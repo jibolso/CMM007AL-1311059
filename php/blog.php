@@ -17,9 +17,9 @@
     <nav>
         <ul>
             <li><a href="blog.php?category=All">All Blog Items</a> </li>
-            <li><a href="blog.php">Work Items</a> </li>
-            <li><a href="blog.php">University Items</a> </li>
-            <li><a href="blog.php">Family Items</a> </li>
+            <li><a href="blog.php?category=Work">Work Items</a> </li>
+            <li><a href="blog.php?category=University">University Items</a> </li>
+            <li><a href="blog.php?category=Family">Family Items</a> </li>
             <li><a href="add.php">Insert a Blog Item</a> </li>
 
         </ul>
@@ -29,7 +29,6 @@
     <section id="blogPage">
         <?php
             if(isset($_GET['category']) && $_GET['category'] == 'All'){
-                $cat = 'Andriod';
                 $sql = "SELECT * FROM blogview";
                 $db_parse = mysqli_query($db, $sql);
                 if(mysqli_num_rows($db_parse) >=1){
@@ -47,10 +46,57 @@
                     echo "<p>No result to display</p>";
                 }
 
+            }elseif(isset($_GET['category']) && $_GET['category'] == 'Work'){
+                $sql = "SELECT * FROM blogview WHERE category = 'Work'";
+                $db_parse = mysqli_query($db, $sql);
+                if(mysqli_num_rows($db_parse) >=1){
+                    while($row = $db_parse->fetch_array()) {
+                        echo "
+                        <article>
+                        <span class='btitle'>{$row['entryTitle']}</span> <span>by</span> <span class='bName'>{$row['submitter']}</span>
+                        <p>{$row['category']}</p>
+                         <p>{$row['entrySummary']}</p>
+                        </article>
+                        <hr>
+                        ";
+                    }
+                }else {
+                    echo "<p>No result to display</p>";
+                }
             }elseif(isset($_GET['category']) && $_GET['category'] == 'University'){
-
+                $sql = "SELECT * FROM blogview WHERE category = 'University'";
+                $db_parse = mysqli_query($db, $sql);
+                if(mysqli_num_rows($db_parse) >=1){
+                    while($row = $db_parse->fetch_array()) {
+                        echo "
+                        <article>
+                        <span class='btitle'>{$row['entryTitle']}</span> <span>by</span> <span class='bName'>{$row['submitter']}</span>
+                        <p>{$row['category']}</p>
+                         <p>{$row['entrySummary']}</p>
+                        </article>
+                        <hr>
+                        ";
+                    }
+                }else {
+                    echo "<p>No result to display</p>";
+                }
             }elseif(isset($_GET['category']) && $_GET['category'] == 'Family'){
-
+                $sql = "SELECT * FROM blogview WHERE category = 'Family'";
+                $db_parse = mysqli_query($db, $sql);
+                if(mysqli_num_rows($db_parse) >=1){
+                    while($row = $db_parse->fetch_array()) {
+                        echo "
+                        <article>
+                        <span class='btitle'>{$row['entryTitle']}</span> <span>by</span> <span class='bName'>{$row['submitter']}</span>
+                        <p>{$row['category']}</p>
+                         <p>{$row['entrySummary']}</p>
+                        </article>
+                        <hr>
+                        ";
+                    }
+                }else {
+                    echo "<p>No result to display</p>";
+                }
             }else{
 
             }
